@@ -24,7 +24,7 @@ class App extends React.Component {
   };
 
   addTask(task) {
-    console.log('addTask task:', task);
+    // console.log('addTask task:', task);
     this.setState({ tasks: [...this.state.tasks, task]});
   };
 
@@ -32,7 +32,6 @@ class App extends React.Component {
     event.preventDefault();
     const newTask = { id: uniqid(), name: this.state.taskName };
     this.addTask(newTask);
-    console.log('newTask in submitForm:', newTask);
     this.socket.emit('addTask', newTask);
     this.setState({ taskName: '' });
   };
@@ -44,8 +43,8 @@ class App extends React.Component {
   render() {
     const { tasks, taskName } = this.state;
 
-    console.log('tasks', tasks);
-    console.log('taskName', taskName);
+    // console.log('tasks', tasks);
+    // console.log('taskName', taskName);
 
     return (
       <div className="App">
@@ -84,7 +83,6 @@ class App extends React.Component {
       </div>
     );
   };
-
 };
 
 export default App;
